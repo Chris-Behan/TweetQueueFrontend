@@ -1,23 +1,16 @@
-
 async function login() {
   try {
-
-    const response = await fetch('https://TweetQueueBackend.behan.repl.co/tweet', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-
-      },
-      body: JSON.stringify({
-        hello: 'world',
-        goodbye: 'dreams'
-      })
+    const response = await fetch('https://TweetQueueBackend.behan.repl.co/login', {
+      method: 'GET',
     })
-    const data = await response.text()
-    console.log(data);
+    const twitterLoginLink = await response.text()
+    window.location.replace(twitterLoginLink);
   } catch (err) {
     console.log('error ocurred!')
     console.log(err)
   }
+}
 
+function loadIndex() {
+  window.location = "index.html"
 }
